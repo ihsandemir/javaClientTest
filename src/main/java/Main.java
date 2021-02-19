@@ -7,7 +7,7 @@ import com.hazelcast.topic.MessageListener;
 public class Main {
     public static void main(String[] args) {
         final HazelcastInstance client = HazelcastClient.newHazelcastClient();
-        final ITopic<Object> topic = client.getTopic("mytopic");
+        final ITopic<Object> topic = client.getReliableTopic("mytopic");
 
         topic.addMessageListener(new MessageListener<Object>() {
             public void onMessage(Message<Object> message) {
